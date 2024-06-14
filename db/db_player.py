@@ -17,7 +17,7 @@ def create_palyer(db:Session , request: PlayerBase ):
 
         db.commit()
         db.refresh(item)
-
+        return item
 
     else:
         player = DbPlayer(
@@ -29,8 +29,7 @@ def create_palyer(db:Session , request: PlayerBase ):
             player.score=1
         db.commit()
         db.refresh(player)
-
-
+        return player
 
 
 def read_all_user(db:Session):
