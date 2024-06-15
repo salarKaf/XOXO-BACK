@@ -4,7 +4,7 @@ from db.models import DbPlayer
 from sqlalchemy import desc
 
 
-def create_palyer(db:Session , request: PlayerBase ):
+def create_player(db:Session , request: PlayerBase ):
     item = db.query(DbPlayer).filter(DbPlayer.name == request.name).first()
     if item:
         if request.status=="WIN":
@@ -22,7 +22,7 @@ def create_palyer(db:Session , request: PlayerBase ):
     else:
         player = DbPlayer(
             score=0,
-            name=request.name       
+            name=request.name
         )
         db.add(player)
         if request.status=="WIN":
